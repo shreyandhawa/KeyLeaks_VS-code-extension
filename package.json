@@ -1,0 +1,99 @@
+{
+  "name": "keyleaks-vscode-extension",
+  "displayName": "KeyLeaks - Secret Leak Detection",
+  "description": "Real-time detection and prevention of secret leaks with AI-powered security advice",
+  "version": "0.1.0",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other",
+    "Security"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "keyleaks.scanWorkspace",
+        "title": "KeyLeaks: Scan Workspace"
+      },
+      {
+        "command": "keyleaks.showAdvice",
+        "title": "KeyLeaks: Show AI Security Advice"
+      },
+      {
+        "command": "keyleaks.toggleRealTimeScanning",
+        "title": "KeyLeaks: Toggle Real-time Scanning"
+      }
+    ],
+    "configuration": {
+      "title": "KeyLeaks",
+      "properties": {
+        "keyleaks.enableRealTimeScanning": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable real-time secret detection while typing"
+        },
+        "keyleaks.enableSoundAlerts": {
+          "type": "boolean",
+          "default": true,
+          "description": "Play sound alerts when secrets are detected"
+        },
+        "keyleaks.geminiApiKey": {
+          "type": "string",
+          "default": "",
+          "description": "Google Gemini API Key for AI security advice (optional)",
+          "scope": "application"
+        },
+        "keyleaks.scanOnSave": {
+          "type": "boolean",
+          "default": true,
+          "description": "Scan files when they are saved"
+        },
+        "keyleaks.ignoredPatterns": {
+          "type": "array",
+          "default": [],
+          "description": "Regex patterns to ignore during scanning"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "npm run webpack-prod && tsc -p ./",
+    "watch": "npm run webpack-dev & tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "webpack": "webpack --mode development",
+    "webpack-dev": "webpack --mode development --watch",
+    "webpack-prod": "webpack --mode production"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/vscode": "^1.74.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@typescript-eslint/eslint-plugin": "^6.13.0",
+    "@typescript-eslint/parser": "^6.13.0",
+    "@vscode/test-electron": "^2.3.0",
+    "eslint": "^8.54.0",
+    "typescript": "^5.3.0",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "ts-loader": "^9.5.1",
+    "css-loader": "^6.8.1",
+    "style-loader": "^3.3.3",
+    "postcss": "^8.4.32",
+    "postcss-loader": "^7.3.3",
+    "tailwindcss": "^3.3.6",
+    "autoprefixer": "^10.4.16"
+  }
+}
+
