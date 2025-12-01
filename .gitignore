@@ -5,4 +5,4 @@ dist
 .DS_Store
 *.log
 .vscode-test/
-
+.env

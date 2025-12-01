@@ -166,18 +166,5 @@ The extension detects:
 - Slack Tokens
 - And more...
 
-## Contributing
 
-Contributions are welcome! Please ensure:
-- Code follows TypeScript best practices
-- Security principles are maintained
-- Tests are added for new features
-
-## License
-
-MIT
-
-## Security
-
-If you discover a security vulnerability, please email security@example.com instead of using the issue tracker.
 
